@@ -30,7 +30,7 @@ export default function App() {
         </main>
 
         <footer style={{ padding: "22px 0 36px", opacity: 0.7, fontSize: 13 }}>
-          Built with React + Vite · Hosted on Vercel
+          Built with React + Vite
         </footer>
       </div>
     </div>
