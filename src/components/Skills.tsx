@@ -1,4 +1,3 @@
-import React from "react";
 import { resume } from "../content/resume";
 
 function PillRow(props: { label: string; items: string[] }) {

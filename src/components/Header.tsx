@@ -1,5 +1,4 @@
-import React from "react";
-import { resume } from "../content/resume";
+import { resume, type Link } from "../content/resume";
 
 export function Header() {
   return (
@@ -12,11 +11,9 @@ export function Header() {
         </div>
       </div>
 
-      <nav style={{ display: "flex", gap: 12, alignItems: "center" }}>
-        {resume.links.map((l) => (
-          <a key={l.href} href={l.href} target="_blank" rel="noreferrer">
-            {l.label}
-          </a>
+          <nav style={{ display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap" }}>
+              {resume.links.map((l: Link) => (
+                  <a key={l.href} href={l.href} target="_blank" rel="noreferrer">{l.label}</a>
         ))}
         <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
