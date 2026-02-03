@@ -50,7 +50,7 @@ function Hero() {
 
           <p className="sub">
             I’m {resume.name}, a CS student focused on full-stack and performance.
-            I like shipping clean UIs, designing APIs that scale, and writing code that doesn’t break under pressure.
+            I like designing APIs that scale, writing reliable code, and working within complex systems.
           </p>
 
           <div className="actions">
@@ -88,8 +88,8 @@ function Hero() {
               </div>
               <div className="tags">
                 <span className="tag">React</span>
-                <span className="tag">TypeScript</span>
-                <span className="tag">APIs</span>
+                <span className="tag">Java</span>
+                <span className="tag">Python</span>
                 <span className="tag">C / Systems</span>
               </div>
             </div>
