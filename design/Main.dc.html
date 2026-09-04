@@ -1,0 +1,183 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <style>
+    body { margin: 0; background: #f1f2f4; color: #1a1b1e;
+           font-family: 'Instrument Sans', 'Helvetica Neue', Arial, sans-serif;
+           -webkit-font-smoothing: antialiased; }
+    a { color: #d92d20; text-decoration: none; }
+    a:hover { color: #a32115; }
+  </style>
+</helmet>
+
+<div style="display: flex; flex-direction: column; background: #f1f2f4; min-height: 1850px; padding: 48px 110px 88px 110px; box-sizing: border-box">
+
+  <div style="display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; font-weight: 600; color: #85878c">
+    <div style="color: #1a1b1e">Aarnawa Koirala</div>
+    <div style="display: flex; gap: 26px">
+      <div>Work</div>
+      <div style="color: #d92d20">R&eacute;sum&eacute;</div>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 26px; padding: 74px 0 60px 0; max-width: 980px">
+    <div style="font-family: 'Bricolage Grotesque', 'Helvetica Neue', Arial, sans-serif; font-size: 104px; font-weight: 800; letter-spacing: -0.04em; line-height: 0.92">
+      Aarnawa<br>Koirala<span style="color: #d92d20">.</span>
+    </div>
+    <div style="font-size: 24px; font-weight: 400; color: #4e5054; line-height: 1.45; max-width: 700px">
+      I build systems software in Rust and C &mdash; kernels, allocators, and simulation engines where the numbers have to hold up.
+    </div>
+    <div style="display: flex; align-items: center; gap: 14px; max-width: 680px">
+      <div style="background: #d92d20; color: #ffffff; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; padding: 6px 12px; border-radius: 999px; flex-shrink: 0">NOW</div>
+      <div style="font-size: 16px; line-height: 1.5; color: #4e5054">Made a production, safety-critical rail simulator <span style="font-weight: 600; color: #1a1b1e">30&ndash;50% faster</span> in Rust at Progress Rail, a Caterpillar Company.</div>
+    </div>
+    <div style="font-size: 15px; font-style: italic; color: #85878c; max-width: 640px">[About &mdash; one or two lines in your voice go here.]</div>
+    <div style="display: flex; gap: 26px; font-size: 13px; font-weight: 600; color: #d92d20">
+      <div>GitHub</div><div>LinkedIn</div><div>Email</div><div>R&eacute;sum&eacute; (PDF)</div>
+    </div>
+  </div>
+
+  <div style="display: flex; align-items: baseline; gap: 16px; padding-bottom: 12px">
+    <div style="font-family: 'Bricolage Grotesque', 'Helvetica Neue', Arial, sans-serif; font-size: 15px; font-weight: 600; color: #85878c">Selected work</div>
+    <div style="font-size: 13px; font-style: italic; color: #a5a7ac">click a project to open it</div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 14px; max-width: 980px">
+
+    <div style="background: #ffffff; border-radius: 4px; padding: 26px 32px; box-shadow: 0 1px 2px rgba(20,21,24,0.06)">
+      <div onClick="{{t0}}" style="display: flex; align-items: baseline; gap: 20px; cursor: pointer">
+        <div style="font-family: 'Bricolage Grotesque', 'Helvetica Neue', Arial, sans-serif; font-size: 34px; font-weight: 800; letter-spacing: -0.03em; flex-grow: 1">PintOS</div>
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: #85878c">C &middot; Kernel &middot; Concurrency</div>
+        <div style="font-size: 26px; font-weight: 400; color: #d92d20; width: 20px; text-align: center">{{c0}}</div>
+      </div>
+      <sc-if value="{{p0}}" hint-placeholder-val="{{ true }}">
+        <div style="display: flex; flex-direction: column; gap: 20px; padding-top: 18px">
+          <div style="font-size: 16px; line-height: 1.65; color: #35373b; max-width: 680px">
+            The scheduler starved high-priority threads whenever a low-priority thread held a lock they needed. I implemented <span style="font-weight: 600">priority donation</span> &mdash; a blocked thread lends its priority through the lock holder, recursively across chained locks &mdash; added the syscalls that let user programs talk to the kernel, and rewrote the timer to block sleeping threads instead of busy-waiting.
+          </div>
+          <svg viewBox="0 0 620 150" width="620" style="max-width: 100%">
+            <rect x="10" y="18" width="150" height="40" rx="3" fill="none" stroke="#35373b" stroke-width="1.2"></rect>
+            <text x="85" y="38" text-anchor="middle" font-size="13" fill="#1a1b1e" font-weight="600">Thread H</text>
+            <text x="85" y="52" text-anchor="middle" font-size="11" fill="#85878c">priority 31 &#183; blocked</text>
+            <rect x="250" y="18" width="110" height="40" rx="3" fill="#f1f2f4" stroke="#35373b" stroke-width="1.2"></rect>
+            <text x="305" y="42" text-anchor="middle" font-size="13" fill="#1a1b1e">lock</text>
+            <rect x="450" y="18" width="150" height="40" rx="3" fill="none" stroke="#35373b" stroke-width="1.2"></rect>
+            <text x="525" y="38" text-anchor="middle" font-size="13" fill="#1a1b1e" font-weight="600">Thread L</text>
+            <text x="525" y="52" text-anchor="middle" font-size="11" fill="#85878c">priority 1 &#183; holds it</text>
+            <line x1="160" y1="38" x2="244" y2="38" stroke="#35373b" stroke-width="1.2"></line>
+            <path d="M244 38 l-8 -4 v8 z" fill="#35373b"></path>
+            <line x1="450" y1="38" x2="366" y2="38" stroke="#35373b" stroke-width="1.2"></line>
+            <path d="M366 38 l8 -4 v8 z" fill="#35373b"></path>
+            <path d="M85 58 C 85 120, 525 120, 525 62" fill="none" stroke="#d92d20" stroke-width="1.4" stroke-dasharray="5 4"></path>
+            <path d="M525 62 l-5 8 h10 z" fill="#d92d20"></path>
+            <text x="305" y="128" text-anchor="middle" font-size="12" fill="#d92d20" font-weight="600">H donates priority 31 &#8594; L runs, releases, H proceeds</text>
+          </svg>
+          <div style="font-size: 14px; font-weight: 600; color: #d92d20">Read the full case study &rarr;</div>
+        </div>
+      </sc-if>
+    </div>
+
+    <div style="background: #ffffff; border-radius: 4px; padding: 26px 32px; box-shadow: 0 1px 2px rgba(20,21,24,0.06)">
+      <div onClick="{{t1}}" style="display: flex; align-items: baseline; gap: 20px; cursor: pointer">
+        <div style="font-family: 'Bricolage Grotesque', 'Helvetica Neue', Arial, sans-serif; font-size: 34px; font-weight: 800; letter-spacing: -0.03em; flex-grow: 1">Memory Allocator</div>
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: #d92d20">85% util &middot; 1,750 req/s</div>
+        <div style="font-size: 26px; font-weight: 400; color: #d92d20; width: 20px; text-align: center">{{c1}}</div>
+      </div>
+      <sc-if value="{{p1}}" hint-placeholder-val="{{ false }}">
+        <div style="display: flex; flex-direction: column; gap: 20px; padding-top: 18px">
+          <div style="font-size: 16px; line-height: 1.65; color: #35373b; max-width: 680px">
+            A malloc and free that manage their own heap: explicit free lists threaded through the unused blocks, boundary-tag coalescing so neighboring frees merge instead of fragmenting, 16-byte alignment throughout. A heap consistency checker catches corruption, misalignment, and invalid frees before they become mystery crashes. It averages <span style="font-weight: 600">85% utilization at 1,750 requests per second</span>.
+          </div>
+          <svg viewBox="0 0 620 150" width="620" style="max-width: 100%">
+            <rect x="10" y="30" width="110" height="36" rx="3" fill="#f1f2f4" stroke="#35373b" stroke-width="1.2"></rect>
+            <text x="65" y="52" text-anchor="middle" font-size="12" fill="#4e5054">allocated</text>
+            <rect x="120" y="30" width="120" height="36" rx="3" fill="none" stroke="#d92d20" stroke-width="1.4"></rect>
+            <text x="180" y="52" text-anchor="middle" font-size="12" fill="#d92d20">free</text>
+            <rect x="240" y="30" width="100" height="36" rx="3" fill="none" stroke="#d92d20" stroke-width="1.4"></rect>
+            <text x="290" y="52" text-anchor="middle" font-size="12" fill="#d92d20">free</text>
+            <rect x="340" y="30" width="120" height="36" rx="3" fill="#f1f2f4" stroke="#35373b" stroke-width="1.2"></rect>
+            <text x="400" y="52" text-anchor="middle" font-size="12" fill="#4e5054">allocated</text>
+            <path d="M180 30 C 200 8, 270 8, 290 30" fill="none" stroke="#d92d20" stroke-width="1.2" stroke-dasharray="4 3"></path>
+            <text x="235" y="12" text-anchor="middle" font-size="11" fill="#d92d20">explicit free list</text>
+            <line x1="235" y1="66" x2="235" y2="96" stroke="#35373b" stroke-width="1.2"></line>
+            <path d="M235 96 l-4 -8 h8 z" fill="#35373b"></path>
+            <text x="330" y="88" font-size="11" fill="#85878c">boundary tags &#8594; coalesce</text>
+            <rect x="120" y="100" width="220" height="36" rx="3" fill="none" stroke="#d92d20" stroke-width="1.4"></rect>
+            <text x="230" y="122" text-anchor="middle" font-size="12" fill="#d92d20">one free block</text>
+          </svg>
+          <div style="font-size: 14px; font-weight: 600; color: #d92d20">Read the full case study &rarr;</div>
+        </div>
+      </sc-if>
+    </div>
+
+    <div style="background: #ffffff; border-radius: 4px; padding: 26px 32px; box-shadow: 0 1px 2px rgba(20,21,24,0.06)">
+      <div onClick="{{t2}}" style="display: flex; align-items: baseline; gap: 20px; cursor: pointer">
+        <div style="font-family: 'Bricolage Grotesque', 'Helvetica Neue', Arial, sans-serif; font-size: 34px; font-weight: 800; letter-spacing: -0.03em; flex-grow: 1">EducaNation</div>
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: #d92d20">50k+ records &middot; &lt;300ms</div>
+        <div style="font-size: 26px; font-weight: 400; color: #d92d20; width: 20px; text-align: center">{{c2}}</div>
+      </div>
+      <sc-if value="{{p2}}" hint-placeholder-val="{{ false }}">
+        <div style="display: flex; flex-direction: column; gap: 20px; padding-top: 18px">
+          <div style="font-size: 16px; line-height: 1.65; color: #35373b; max-width: 680px">
+            A full-stack web app serving 50k+ relational records with filtered search, joins, and pagination. Moving pagination and filtering server-side cut payloads by about <span style="font-weight: 600">70%</span> and kept average API responses under <span style="font-weight: 600">300&nbsp;ms</span>. Built with a team of five through peer-reviewed, CI-tested releases at 90%+ backend coverage.
+          </div>
+          <svg viewBox="0 0 620 110" width="620" style="max-width: 100%">
+            <rect x="10" y="20" width="150" height="42" rx="3" fill="none" stroke="#35373b" stroke-width="1.2"></rect>
+            <text x="85" y="45" text-anchor="middle" font-size="13" fill="#1a1b1e" font-weight="600">React</text>
+            <rect x="235" y="20" width="150" height="42" rx="3" fill="none" stroke="#35373b" stroke-width="1.2"></rect>
+            <text x="310" y="40" text-anchor="middle" font-size="13" fill="#1a1b1e" font-weight="600">Flask API</text>
+            <text x="310" y="54" text-anchor="middle" font-size="10" fill="#85878c">paginate &#183; filter</text>
+            <rect x="460" y="20" width="150" height="42" rx="3" fill="none" stroke="#35373b" stroke-width="1.2"></rect>
+            <text x="535" y="45" text-anchor="middle" font-size="13" fill="#1a1b1e" font-weight="600">PostgreSQL</text>
+            <line x1="160" y1="41" x2="229" y2="41" stroke="#35373b" stroke-width="1.2"></line>
+            <path d="M229 41 l-8 -4 v8 z" fill="#35373b"></path>
+            <line x1="385" y1="41" x2="454" y2="41" stroke="#35373b" stroke-width="1.2"></line>
+            <path d="M454 41 l-8 -4 v8 z" fill="#35373b"></path>
+            <path d="M10 78 h600" stroke="#d92d20" stroke-width="1" stroke-dasharray="4 3"></path>
+            <text x="310" y="98" text-anchor="middle" font-size="12" fill="#d92d20" font-weight="600">average round trip under 300 ms &#183; payloads ~70% smaller</text>
+          </svg>
+          <div style="font-size: 14px; font-weight: 600; color: #d92d20">Read the full case study &rarr;</div>
+        </div>
+      </sc-if>
+    </div>
+
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 16px; padding-top: 64px; max-width: 980px">
+    <div style="font-family: 'Bricolage Grotesque', 'Helvetica Neue', Arial, sans-serif; font-size: 15px; font-weight: 600; color: #85878c">Get in touch</div>
+    <div style="font-family: 'Bricolage Grotesque', 'Helvetica Neue', Arial, sans-serif; font-size: 42px; font-weight: 800; letter-spacing: -0.03em; color: #d92d20">aarnawakoirala@gmail.com</div>
+    <div style="display: flex; gap: 26px; font-size: 13px; font-weight: 500; color: #85878c">
+      <div>github.com/aarnawa05</div>
+      <div>linkedin.com/in/aarnawa</div>
+    </div>
+    <div style="font-size: 13px; color: #85878c; border-top: 1px solid #dcdde0; padding-top: 18px; line-height: 1.5">
+      Rust &middot; C &middot; Java &middot; Python &middot; JavaScript &middot; React &middot; Flask &middot; Spring &middot; PostgreSQL &middot; Docker &middot; AWS &mdash; B.S. Computer Science, UT Austin, May 2027, GPA 3.94
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const open = (this.state && this.state.open !== undefined) ? this.state.open : 0;
+    const toggle = (i) => () => this.setState({ open: open === i ? -1 : i });
+    return {
+      p0: open === 0, p1: open === 1, p2: open === 2,
+      c0: open === 0 ? '−' : '+',
+      c1: open === 1 ? '−' : '+',
+      c2: open === 2 ? '−' : '+',
+      t0: toggle(0), t1: toggle(1), t2: toggle(2)
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap">
+  <style>
+    body { margin: 0; background: #ffffff; color: #000000;
+           font-family: 'Archivo', Helvetica, 'Helvetica Neue', sans-serif;
+           -webkit-font-smoothing: antialiased; }
+    a { color: #e5261f; text-decoration: none; }
+    a:hover { color: #a81a15; }
+  </style>
+</helmet>
+
+<div style="display: flex; flex-direction: column; background: #ffffff; min-height: 1700px; padding: 40px 56px 56px 56px; box-sizing: border-box; gap: 28px">
+
+  <div style="display: flex; justify-content: space-between; align-items: baseline; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase">
+    <div>Aarnawa Koirala</div>
+    <div style="display: flex; gap: 20px">
+      <div>Work</div>
+      <div>About</div>
+      <div style="color: #e5261f">Resume</div>
+    </div>
+  </div>
+
+  <div style="height: 3px; background: #000000"></div>
+
+  <div style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 16px; padding: 8px 0 14px 0">
+    <div style="grid-column: span 9; display: flex; flex-direction: column; gap: 18px">
+      <div style="font-size: 62px; font-weight: 700; letter-spacing: -0.035em; line-height: 0.92; text-transform: uppercase">
+        Aarnawa<br>Koirala
+      </div>
+      <div style="font-size: 19px; font-weight: 500; letter-spacing: -0.01em; max-width: 420px; line-height: 1.28">
+        Systems software in Rust and C.
+      </div>
+    </div>
+    <div style="grid-column: span 3; display: flex; flex-direction: column; justify-content: flex-end; gap: 8px">
+      <div style="background: #e5261f; height: 56px; width: 100%"></div>
+      <div style="font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #6e6e6e">CS &middot; UT Austin &middot; 2027</div>
+    </div>
+  </div>
+
+  <div style="height: 1px; background: #000000"></div>
+
+  <div style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 16px">
+    <div style="grid-column: span 2; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase">About</div>
+    <div style="grid-column: span 10; display: flex; flex-direction: column; gap: 10px">
+      <div style="height: 9px; background: #e0e0e0; width: 98%"></div>
+      <div style="height: 9px; background: #e0e0e0; width: 90%"></div>
+      <div style="height: 9px; background: #e0e0e0; width: 52%"></div>
+    </div>
+  </div>
+
+  <div style="height: 1px; background: #000000"></div>
+
+  <div style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 16px">
+    <div style="grid-column: span 2; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase">Experience</div>
+    <div style="grid-column: span 10; display: flex; flex-direction: column; gap: 12px">
+      <div style="display: flex; justify-content: space-between; align-items: baseline">
+        <div style="font-size: 22px; font-weight: 600; letter-spacing: -0.02em">Software Engineering Intern</div>
+        <div style="font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase">May&ndash;Aug 2026</div>
+      </div>
+      <div style="font-size: 14px; font-weight: 500; color: #4a4a4a">Progress Rail, a Caterpillar Company / Southlake, TX</div>
+      <div style="display: flex; flex-direction: column; gap: 10px; padding-top: 4px">
+        <div style="height: 8px; background: #e0e0e0; width: 95%"></div>
+        <div style="height: 8px; background: #e0e0e0; width: 80%"></div>
+        <div style="height: 8px; background: #e0e0e0; width: 88%"></div>
+      </div>
+      <div style="display: flex; gap: 6px; padding-top: 6px">
+        <div style="font-size: 10px; font-weight: 600; letter-spacing: 0.06em; background: #000000; color: #ffffff; padding: 5px 9px">RUST</div>
+        <div style="font-size: 10px; font-weight: 600; letter-spacing: 0.06em; background: #000000; color: #ffffff; padding: 5px 9px">SIMD</div>
+        <div style="font-size: 10px; font-weight: 600; letter-spacing: 0.06em; background: #e5261f; color: #ffffff; padding: 5px 9px">30&ndash;50% FASTER</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="height: 1px; background: #000000"></div>
+
+  <div style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 16px">
+    <div style="grid-column: span 2; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase">Work</div>
+    <div style="grid-column: span 10; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px">
+
+      <div style="display: flex; flex-direction: column; gap: 10px; border-top: 3px solid #000000; padding-top: 12px">
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.1em; color: #6e6e6e">01</div>
+        <div style="font-size: 19px; font-weight: 600; letter-spacing: -0.02em">PintOS</div>
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <div style="height: 8px; background: #e0e0e0; width: 100%"></div>
+          <div style="height: 8px; background: #e0e0e0; width: 72%"></div>
+        </div>
+        <div style="font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #6e6e6e; padding-top: 4px">C &middot; Kernel</div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 10px; border-top: 3px solid #000000; padding-top: 12px">
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.1em; color: #6e6e6e">02</div>
+        <div style="font-size: 19px; font-weight: 600; letter-spacing: -0.02em">Memory Allocator</div>
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <div style="height: 8px; background: #e0e0e0; width: 100%"></div>
+          <div style="height: 8px; background: #e0e0e0; width: 66%"></div>
+        </div>
+        <div style="font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #e5261f; padding-top: 4px">85% util &middot; 1750 req/s</div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 10px; border-top: 3px solid #000000; padding-top: 12px">
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.1em; color: #6e6e6e">03</div>
+        <div style="font-size: 19px; font-weight: 600; letter-spacing: -0.02em">EducaNation</div>
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <div style="height: 8px; background: #e0e0e0; width: 100%"></div>
+          <div style="height: 8px; background: #e0e0e0; width: 80%"></div>
+        </div>
+        <div style="font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #e5261f; padding-top: 4px">50k records &middot; &lt;300ms</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div style="height: 1px; background: #000000"></div>
+
+  <div style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 16px">
+    <div style="grid-column: span 2; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase">Skills</div>
+    <div style="grid-column: span 10; display: flex; flex-direction: column; gap: 10px; font-size: 14px; font-weight: 500">
+      <div style="display: flex; gap: 20px"><div style="width: 104px; flex-shrink: 0; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #6e6e6e; padding-top: 3px">Languages</div><div>Rust / Java / C / Python / JavaScript</div></div>
+      <div style="display: flex; gap: 20px"><div style="width: 104px; flex-shrink: 0; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #6e6e6e; padding-top: 3px">Frameworks</div><div>Spring / React / Flask</div></div>
+      <div style="display: flex; gap: 20px"><div style="width: 104px; flex-shrink: 0; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #6e6e6e; padding-top: 3px">Databases</div><div>PostgreSQL</div></div>
+      <div style="display: flex; gap: 20px"><div style="width: 104px; flex-shrink: 0; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #6e6e6e; padding-top: 3px">Tools</div><div>Git / Docker / AWS / Postman</div></div>
+      <div style="display: flex; gap: 20px"><div style="width: 104px; flex-shrink: 0; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #6e6e6e; padding-top: 3px">Libraries</div><div>Apache POI / NumPy / SQLAlchemy</div></div>
+    </div>
+  </div>
+
+  <div style="height: 1px; background: #000000"></div>
+
+  <div style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 16px">
+    <div style="grid-column: span 2; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase">Education</div>
+    <div style="grid-column: span 10; display: flex; justify-content: space-between; align-items: baseline">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <div style="font-size: 20px; font-weight: 600; letter-spacing: -0.02em">The University of Texas at Austin</div>
+        <div style="font-size: 14px; font-weight: 500; color: #4a4a4a">B.S. Computer Science / Minor in Business</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px; text-align: right">
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase">May 2027</div>
+        <div style="font-size: 14px; font-weight: 600; color: #e5261f">GPA 3.94</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="height: 3px; background: #000000"></div>
+
+  <div style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 16px; padding-top: 6px">
+    <div style="grid-column: span 2; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase">Contact</div>
+    <div style="grid-column: span 10; display: flex; flex-direction: column; gap: 12px">
+      <div style="font-size: 26px; font-weight: 600; letter-spacing: -0.025em; color: #e5261f">aarnawakoirala@gmail.com</div>
+      <div style="display: flex; gap: 22px; font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #6e6e6e">
+        <div>github.com/aarnawa05</div>
+        <div>linkedin.com/in/aarnawa</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

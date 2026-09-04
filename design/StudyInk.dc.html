@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap">
+  <style>
+    body { margin: 0; background: #101114; color: #e9eaec;
+           font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
+           -webkit-font-smoothing: antialiased; }
+    a { color: #e5484d; text-decoration: none; }
+    a:hover { color: #ff7a7e; }
+  </style>
+</helmet>
+
+<div style="display: flex; flex-direction: column; background: #101114; min-height: 1660px; padding: 48px 110px 88px 110px; box-sizing: border-box">
+
+  <div style="display: flex; justify-content: space-between; align-items: baseline; font-family: 'IBM Plex Mono', Menlo, monospace; font-size: 12px; letter-spacing: 0.08em; color: #7d8087">
+    <div style="color: #e9eaec">aarnawa koirala</div>
+    <div style="display: flex; gap: 26px">
+      <div>work</div>
+      <div style="color: #e5484d">r&eacute;sum&eacute;</div>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 26px; padding: 78px 0 64px 0; max-width: 940px">
+    <div style="font-size: 92px; font-weight: 700; letter-spacing: -0.035em; line-height: 0.98">
+      Aarnawa Koirala
+    </div>
+    <div style="font-size: 25px; font-weight: 400; color: #a4a6ab; line-height: 1.45; max-width: 700px">
+      I build systems software in Rust and C &mdash; kernels, allocators, and simulation engines where the numbers have to hold up.
+    </div>
+    <div style="font-family: 'IBM Plex Mono', Menlo, monospace; font-size: 14px; line-height: 1.7; color: #a4a6ab; max-width: 660px; border-left: 2px solid #2a2c31; padding-left: 22px">
+      recently: making a production, safety-critical rail simulator <span style="color: #e5484d">30&ndash;50% faster</span> in Rust at Progress Rail, a Caterpillar Company.
+    </div>
+    <div style="display: flex; gap: 28px; font-family: 'IBM Plex Mono', Menlo, monospace; font-size: 12px; letter-spacing: 0.06em; color: #e5484d">
+      <div>github</div><div>linkedin</div><div>email</div><div>resume.pdf</div>
+    </div>
+  </div>
+
+  <div style="font-family: 'IBM Plex Mono', Menlo, monospace; font-size: 12px; letter-spacing: 0.14em; color: #7d8087; padding-bottom: 10px">SELECTED WORK</div>
+
+  <div style="display: flex; flex-direction: column; max-width: 940px">
+
+    <div style="border-top: 1px solid #26282c">
+      <div style="display: flex; align-items: baseline; gap: 22px; padding: 22px 0">
+        <div style="font-family: 'IBM Plex Mono', Menlo, monospace; font-size: 12px; color: #55575c; width: 28px; flex-shrink: 0">01</div>
+        <div style="font-size: 29px; font-weight: 600; letter-spacing: -0.02em; flex-grow: 1">PintOS</div>
+        <div style="font-family: 'IBM Plex Mono', Menlo, monospace; font-size: 11px; letter-spacing: 0.06em; color: #7d8087">c &middot; kernel &middot; concurrency</div>
+        <div style="font-size: 24px; color: #e5484d; width: 20px; text-align: center">&minus;</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 20px; padding: 2px 0 34px 50px">
+        <div style="font-size: 16px; line-height: 1.65; color: #c6c8cc; max-width: 660px">
+          The scheduler starved high-priority threads whenever a low-priority thread held a lock they needed. I implemented <span style="color: #e9eaec; font-weight: 600">priority donation</span> &mdash; a blocked thread lends its priority through the lock holder, recursively across chained locks &mdash; added the syscalls that let user programs talk to the kernel, and rewrote the timer to block sleeping threads instead of busy-waiting.
+        </div>
+        <svg viewBox="0 0 620 150" width="620" style="max-width: 100%">
+          <rect x="10" y="18" width="150" height="40" fill="none" stroke="#a4a6ab" stroke-width="1.2"></rect>
+          <text x="85" y="38" text-anchor="middle" font-size="13" fill="#e9eaec">Thread H</text>
+          <text x="85" y="52" text-anchor="middle" font-size="11" fill="#7d8087">priority 31 &#183; blocked</text>
+          <rect x="250" y="18" width="110" height="40" fill="#1c1e22" stroke="#a4a6ab" stroke-width="1.2"></rect>
+          <text x="305" y="42" text-anchor="middle" font-size="13" fill="#e9eaec">lock</text>
+          <rect x="450" y="18" width="150" height="40" fill="none" stroke="#a4a6ab" stroke-width="1.2"></rect>
+          <text x="525" y="38" text-anchor="middle" font-size="13" fill="#e9eaec">Thread L</text>
+          <text x="525" y="52" text-anchor="middle" font-size="11" fill="#7d8087">priority 1 &#183; holds it</text>
+          <line x1="160" y1="38" x2="244" y2="38" stroke="#a4a6ab" stroke-width="1.2"></line>
+          <path d="M244 38 l-8 -4 v8 z" fill="#a4a6ab"></path>
+          <line x1="450" y1="38" x2="366" y2="38" stroke="#a4a6ab" stroke-width="1.2"></line>
+          <path d="M366 38 l8 -4 v8 z" fill="#a4a6ab"></path>
+          <path d="M85 58 C 85 120, 525 120, 525 62" fill="none" stroke="#e5484d" stroke-width="1.4" stroke-dasharray="5 4"></path>
+          <path d="M525 62 l-5 8 h10 z" fill="#e5484d"></path>
+          <text x="305" y="128" text-anchor="middle" font-size="12" fill="#e5484d" font-family="IBM Plex Mono, monospace">H donates 31 &#8594; L runs, releases, H proceeds</text>
+        </svg>
+        <div style="font-family: 'IBM Plex Mono', Menlo, monospace; font-size: 13px; color: #e5484d">read the full case study &rarr;</div>
+      </div>
+    </div>
+
+    <div style="border-top: 1px solid #26282c">
+      <div style="display: flex; align-items: baseline; gap: 22px; padding: 22px 0">
+        <div style="font-family: 'IBM Plex Mono', Menlo, monospace; font-size: 12px; color: #55575c; width: 28px; flex-shrink: 0">02</div>
+        <div style="font-size: 29px; font-weight: 600; letter-spacing: -0.02em; flex-grow: 1">Memory Allocator</div>
+        <div style="font-family: 'IBM Plex Mono', Menlo, monospace; font-size: 11px; letter-spacing: 0.06em; color: #e5484d">85% util &middot; 1750 req/s</div>
+        <div style="font-size: 24px; color: #e5484d; width: 20px; text-align: center">+</div>
+      </div>
+    </div>
+
+    <div style="border-top: 1px solid #26282c; border-bottom: 1px solid #26282c">
+      <div style="display: flex; align-items: baseline; gap: 22px; padding: 22px 0">
+        <div style="font-family: 'IBM Plex Mono', Menlo, monospace; font-size: 12px; color: #55575c; width: 28px; flex-shrink: 0">03</div>
+        <div style="font-size: 29px; font-weight: 600; letter-spacing: -0.02em; flex-grow: 1">EducaNation</div>
+        <div style="font-family: 'IBM Plex Mono', Menlo, monospace; font-size: 11px; letter-spacing: 0.06em; color: #e5484d">50k+ records &middot; &lt;300ms</div>
+        <div style="font-size: 24px; color: #e5484d; width: 20px; text-align: center">+</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 16px; padding-top: 68px; max-width: 940px">
+    <div style="font-family: 'IBM Plex Mono', Menlo, monospace; font-size: 12px; letter-spacing: 0.14em; color: #7d8087">GET IN TOUCH</div>
+    <div style="font-size: 38px; font-weight: 600; letter-spacing: -0.025em; color: #e5484d">aarnawakoirala@gmail.com</div>
+    <div style="display: flex; gap: 28px; font-family: 'IBM Plex Mono', Menlo, monospace; font-size: 12px; color: #7d8087">
+      <div>github.com/aarnawa05</div>
+      <div>linkedin.com/in/aarnawa</div>
+    </div>
+    <div style="font-family: 'IBM Plex Mono', Menlo, monospace; font-size: 12px; color: #7d8087; border-top: 1px solid #26282c; padding-top: 18px; line-height: 1.6">
+      rust &middot; c &middot; java &middot; python &middot; javascript &middot; react &middot; flask &middot; spring &middot; postgresql &middot; docker &middot; aws &mdash; b.s. computer science, ut austin, may 2027, gpa 3.94
+    </div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

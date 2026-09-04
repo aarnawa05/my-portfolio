@@ -1,0 +1,138 @@
+{
+  "pages": [
+    {
+      "id": "page-1",
+      "name": "Home"
+    },
+    {
+      "id": "page-3",
+      "name": "Type & color studies"
+    },
+    {
+      "id": "page-2",
+      "name": "Direction sketches"
+    }
+  ],
+  "artboards": [
+    {
+      "file": "Main.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 1910,
+      "title": "Home — Desktop",
+      "page": "page-1",
+      "is_interactive": true
+    },
+    {
+      "file": "Mobile.dc.html",
+      "x": 1540,
+      "y": 0,
+      "w": 390,
+      "h": 2210,
+      "title": "Home — Mobile",
+      "page": "page-1",
+      "is_interactive": true
+    },
+    {
+      "file": "StudyGallery.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 1720,
+      "title": "Study 1 — Gallery",
+      "page": "page-3"
+    },
+    {
+      "file": "StudyInk.dc.html",
+      "x": 1540,
+      "y": 0,
+      "w": 1440,
+      "h": 1720,
+      "title": "Study 2 — Ink",
+      "page": "page-3"
+    },
+    {
+      "file": "StudyBricolage.dc.html",
+      "x": 3080,
+      "y": 0,
+      "w": 1440,
+      "h": 1760,
+      "title": "Study 3 — Bricolage",
+      "page": "page-3"
+    },
+    {
+      "file": "Technical.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 900,
+      "h": 1700,
+      "title": "A — Technical",
+      "page": "page-2"
+    },
+    {
+      "file": "Editorial.dc.html",
+      "x": 980,
+      "y": 0,
+      "w": 900,
+      "h": 1700,
+      "title": "B — Editorial",
+      "page": "page-2"
+    },
+    {
+      "file": "Swiss.dc.html",
+      "x": 1960,
+      "y": 0,
+      "w": 900,
+      "h": 1700,
+      "title": "C — Swiss",
+      "page": "page-2"
+    }
+  ],
+  "annotations": [
+    {
+      "id": "studies-note",
+      "x": 0,
+      "y": -340,
+      "w": 900,
+      "page": "page-3",
+      "text": "Three type & color studies of the same work-first page. STUDY 3 — BRICOLAGE was chosen and applied to the Home page; Studies 1 and 2 kept here for reference."
+    },
+    {
+      "id": "home-note",
+      "x": 0,
+      "y": -300,
+      "w": 780,
+      "page": "page-1",
+      "text": "Home in the chosen system — Study 3 (Bricolage): Bricolage Grotesque display, Instrument Sans body, white project cards on cool gray, red #d92d20.\n\nThe rows still work: click/tap a project to open it in place.\n\nStill needs from you: one About line in your voice (marked in the hero)."
+    },
+    {
+      "id": "how-to-read",
+      "x": 0,
+      "y": -200,
+      "w": 900,
+      "page": "page-2",
+      "text": "The three original direction sketches, kept for reference. B — Editorial was chosen for its structure; its serif/warm-paper skin was dropped after review — see the Type & color studies page."
+    },
+    {
+      "id": "note-a",
+      "x": 980,
+      "y": -200,
+      "w": 440,
+      "page": "page-2",
+      "text": "A — Technical: mono, hairline rules, amber accent. Not chosen."
+    },
+    {
+      "id": "note-c",
+      "x": 1960,
+      "y": -200,
+      "w": 440,
+      "page": "page-2",
+      "text": "C — Swiss: strict grid, black rules, red once per section. Not chosen."
+    }
+  ],
+  "launch": {
+    "view": "canvas",
+    "page": "page-1"
+  }
+}

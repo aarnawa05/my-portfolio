@@ -1,0 +1,63 @@
+---
+title: "EducaNation"
+slug: "educanation"
+blurb: "A full-stack web app serving 50k+ relational records with filtered search, joins, and sub-300ms pagination."
+summary: "A full-stack web app serving 50k+ relational records with filtered search, joins, and pagination. Moving pagination and filtering server-side cut payloads by about 70% and kept average API responses under 300 ms. Built with a team of five through peer-reviewed, CI-tested releases at 90%+ backend coverage."
+timeframe: "2025"
+role: "Five-person team, backend and API focus"
+stack: ["React", "Flask", "PostgreSQL", "Docker"]
+metrics: ["<300ms average API response", "~70% smaller payloads", "90%+ backend test coverage"]
+repo: null
+demo: null
+featured: true
+order: 3
+---
+
+## Context
+
+EducaNation is a full-stack web application built by a five-person team: multiple
+related entities, 50k+ relational records, and an interface for searching, filtering,
+and browsing across them. My work centered on the backend — the REST API, the data
+layer, and the performance of both.
+
+## Approach
+
+**RESTful API with server-side pagination and filtering.** The first working version
+did what first versions do: shipped whole result sets to the client and let React sort
+it out. That collapses at 50k records. Moving pagination and query filtering into the
+Flask API — with SQLAlchemy composing the filters into SQL rather than Python
+post-processing — cut response payloads by roughly 70% and brought average API
+response times under 300 ms, joins and filtered search included.
+
+**Relational modeling.** The entities are genuinely relational — the interesting
+queries are joins. Modeling them properly in PostgreSQL meant the database does what
+databases are good at, instead of the API reimplementing joins badly in application
+code.
+
+**Team workflow.** Five people on one codebase works or doesn't based on process:
+Git-based workflows on GitLab, peer code review on every merge, iterative releases,
+and CI-style testing with PyTest holding backend coverage above 90%. Postman
+collections doubled as living documentation of the API contract.
+
+## The hard part: making the API honest under load
+
+The tricky part of server-side filtering is that every combination of filters, sort
+order, and page must compose into one efficient SQL query — the naive route of
+fetching broadly and filtering in Python quietly reintroduces the payload problem
+one layer down. Getting SQLAlchemy to build the right query for every combination,
+and proving it with tests rather than assuming it, is where the response-time budget
+was actually won.
+
+## Results
+
+- **50k+ records** served across multiple entities with filtered search, joins, and
+  pagination
+- **Under 300 ms** average API response time
+- **~70% smaller** payloads after moving pagination and filtering server-side
+- **90%+ backend test coverage**, maintained across releases by a five-person team
+
+## Takeaways
+
+Performance work on an API is mostly about respecting the database. And team velocity
+came from the boring things — review discipline, tests that fail loudly, a shared API
+contract — more than from any individual's code.
