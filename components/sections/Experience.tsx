@@ -53,7 +53,7 @@ export default function Experience() {
                   className="flex gap-3 text-[14px] sm:text-base leading-relaxed text-[#35373b] max-w-[720px]"
                 >
                   <span aria-hidden className="text-accent shrink-0">
-                    —
+                    ·
                   </span>
                   <span>{b}</span>
                 </li>

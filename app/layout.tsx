@@ -22,10 +22,10 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: "Aarnawa Koirala",
-    template: "%s — Aarnawa Koirala",
+    template: "%s | Aarnawa Koirala",
   },
   description:
-    "Systems software in Rust and C — kernels, allocators, and simulation engines where the numbers have to hold up.",
+    "Systems software in Rust and C: kernels, allocators, and simulation engines where the numbers have to hold up.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

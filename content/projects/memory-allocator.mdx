@@ -1,7 +1,7 @@
 ---
 title: "Memory Allocator"
 slug: "memory-allocator"
-blurb: "A custom malloc/free on explicit free lists with coalescing — 85% utilization at 1,750 requests per second."
+blurb: "A custom malloc/free on explicit free lists with coalescing: 85% utilization at 1,750 requests per second."
 summary: "A malloc and free that manage their own heap: explicit free lists threaded through the unused blocks, boundary-tag coalescing so neighboring frees merge instead of fragmenting, 16-byte alignment throughout. A heap consistency checker catches corruption, misalignment, and invalid frees before they become mystery crashes."
 timeframe: "Spring 2026"
 role: "Individual coursework, UT Austin"
@@ -17,7 +17,7 @@ order: 2
 
 `malloc` and `free`, written from scratch against a raw heap: the allocator hands out
 blocks, reclaims them, and fights fragmentation, judged on two axes that pull against
-each other — memory utilization and throughput. A design that chases one usually pays
+each other: memory utilization and throughput. A design that chases one usually pays
 for it in the other.
 
 As UT coursework, the source stays private; this is the design and what it taught me.
@@ -26,20 +26,20 @@ As UT coursework, the source stays private; this is the design and what it taugh
 
 **Explicit free lists.** The naive approach scans every block in the heap looking for
 a free one. Instead, free blocks form a doubly-linked list threaded through the free
-blocks' own payload space — a freed block is unused memory, so it can store the
+blocks' own payload space. A freed block is unused memory, so it can store the
 pointers. Allocation walks only free blocks, which is the difference between O(all
 blocks) and O(free blocks) per request.
 
 **Boundary tags and coalescing.** Every block carries its size in a header, and free
 blocks mirror it in a footer. When a block is freed, the footer of its left neighbor
-and the header of its right neighbor are one pointer-step away — so the allocator can
+and the header of its right neighbor are one pointer-step away, so the allocator can
 tell in constant time whether either neighbor is free and merge them into one block on
 the spot. Without this, the heap decays into confetti: plenty of free bytes, none of
 them contiguous enough to use.
 
 **Alignment and splitting.** Everything is 16-byte aligned. When a free block is
-larger than a request, it splits — the remainder goes back on the free list — but only
-above a minimum split size, because a 16-byte splinter is fragmentation wearing a
+larger than a request, it splits, and the remainder goes back on the free list, but
+only above a minimum split size, because a 16-byte splinter is fragmentation wearing a
 free-list costume.
 
 ## The hard part: debugging a liar
@@ -47,7 +47,7 @@ free-list costume.
 An allocator bug rarely crashes the allocator. It corrupts a block header, and the
 crash arrives thousands of requests later, in unrelated code, with a stack trace that
 points nowhere. The single highest-leverage thing I built was a **heap consistency
-checker**: a function that walks the entire heap and validates every invariant —
+checker**: a function that walks the entire heap and validates every invariant:
 headers match footers, no two free blocks sit adjacent (coalescing worked), every
 free-list pointer targets a valid free block, everything is aligned. Run after every
 operation in debug mode, it converts "mystery crash in three thousand requests" into

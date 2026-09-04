@@ -2,7 +2,7 @@
 title: "PintOS"
 slug: "pintos"
 blurb: "Priority scheduling, syscalls, and a non-busy-wait timer in an instructional OS kernel."
-summary: "The scheduler starved high-priority threads whenever a low-priority thread held a lock they needed. I implemented priority donation — a blocked thread lends its priority through the lock holder, recursively across chained locks — added the syscalls that let user programs talk to the kernel, and rewrote the timer to block sleeping threads instead of busy-waiting."
+summary: "The scheduler starved high-priority threads whenever a low-priority thread held a lock they needed. I implemented priority donation (a blocked thread lends its priority through the lock holder, recursively across chained locks), added the syscalls that let user programs talk to the kernel, and rewrote the timer to block sleeping threads instead of busy-waiting."
 timeframe: "Spring 2026"
 role: "Individual coursework, UT Austin Operating Systems"
 stack: ["C", "Kernel", "Concurrency"]
@@ -18,8 +18,8 @@ order: 1
 PintOS is an instructional operating system kernel: real thread scheduling, real
 interrupts, real synchronization primitives, running on emulated x86 hardware. The
 course drops you into a working-but-naive kernel and asks you to make its core
-subsystems behave correctly under concurrency — with all the debugging pain that real
-kernel work implies.
+subsystems behave correctly under concurrency, with all the debugging pain that
+real kernel work implies.
 
 Because this is UT coursework, the source stays private. What follows is the approach
 and the reasoning, which is the part worth reading anyway.
@@ -32,16 +32,16 @@ Three subsystems, in dependency order:
 full duration of every sleep. I rewrote it to block the sleeping thread on entry,
 record its wake-up tick in an ordered list, and let the timer interrupt handler wake
 exactly the threads whose time has come. Wasted cycles went to zero, and the ordered
-list keeps the interrupt handler's work minimal — it stops scanning at the first
+list keeps the interrupt handler's work minimal: it stops scanning at the first
 thread that isn't due yet.
 
 **Priority scheduling.** The ready queue became priority-aware: the scheduler always
 runs the highest-priority ready thread, and a thread that raises another's priority
-above its own yields immediately. The subtle part is preemption on wake — any event
+above its own yields immediately. The subtle part is preemption on wake: any event
 that makes a higher-priority thread ready must cause a reschedule, including from
 inside an interrupt handler.
 
-**System calls.** User programs cross into the kernel through a syscall interface —
+**System calls.** User programs cross into the kernel through a syscall interface:
 file operations, process management. Every pointer coming from user space is hostile
 until proven valid: each one gets checked against the process's address space before
 the kernel dereferences it, so a buggy or malicious program can kill itself but not
@@ -55,7 +55,7 @@ the system now effectively outranks H, because L never gets scheduled to release
 lock.
 
 The fix is donation: when H blocks on L's lock, H lends its priority to L for as long
-as L holds it. The recursive case is what makes it interesting — if L is itself
+as L holds it. The recursive case is what makes it interesting: if L is itself
 blocked on a lock held by M, the donation has to chain through: H's priority flows to
 L, and through L to M, for as long as the chain holds. Each thread therefore tracks
 the priorities donated to it per lock, recomputes its effective priority as the max of
@@ -64,14 +64,14 @@ corresponding lock.
 
 Getting this right meant drawing the ownership graph on paper before touching code:
 which thread holds what, who is waiting on whom, and exactly when each donation must
-appear and disappear. Most of the bugs were races — a donation applied after the
-scheduler had already made the wrong choice — and the fix was almost always tightening
+appear and disappear. Most of the bugs were races (a donation applied after the
+scheduler had already made the wrong choice), and the fix was almost always tightening
 which operations happen atomically with interrupts disabled.
 
 ## Results
 
 - Sleeping threads consume no CPU; the timer interrupt wakes only threads that are due.
-- High-priority threads are never starved through a lock chain — donation resolves
+- High-priority threads are never starved through a lock chain; donation resolves
   inversions of arbitrary depth.
 - User programs interact with the kernel through validated syscalls; bad pointers
   terminate the offending process, never the kernel.
@@ -82,5 +82,5 @@ which operations happen atomically with interrupts disabled.
 Kernel debugging rewires how you think about state: with no debugger worth trusting
 inside an interrupt handler, invariants and printk-archaeology are the tools. And
 concurrency bugs taught me to distrust any fix I couldn't explain as "this sequence of
-interleavings is now impossible" — if the explanation was "it passes now," it wasn't
+interleavings is now impossible." If the explanation was "it passes now," it wasn't
 fixed.

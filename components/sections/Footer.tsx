@@ -20,7 +20,7 @@ export default function Footer() {
       </div>
       <p className="text-[13px] text-faint border-t border-line pt-4 leading-normal">
         Rust · C · Java · Python · JavaScript · React · Flask · Spring ·
-        PostgreSQL · Docker · AWS — B.S. Computer Science, UT Austin, May 2027,
+        PostgreSQL · Docker · AWS · B.S. Computer Science, UT Austin, May 2027,
         GPA 3.94
       </p>
     </footer>

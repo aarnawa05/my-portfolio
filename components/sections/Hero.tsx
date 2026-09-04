@@ -14,7 +14,7 @@ export default function Hero() {
         Koirala<span className="text-accent">.</span>
       </h1>
       <p className="text-dim text-lg sm:text-2xl leading-[1.45] max-w-[700px]">
-        I build systems software in Rust and C — kernels, allocators, and
+        I build systems software in Rust and C: kernels, allocators, and
         simulation engines where the numbers have to hold up.
       </p>
       <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3.5 max-w-[680px]">
@@ -27,10 +27,6 @@ export default function Hero() {
           Caterpillar Company.
         </p>
       </div>
-      {/* TODO(aarnawa): replace with your About line */}
-      <p className="text-faint italic text-sm sm:text-[15px] max-w-[640px]">
-        [About — one or two lines in your voice go here.]
-      </p>
       <nav aria-label="Profiles" className="flex flex-wrap gap-5 sm:gap-6 pt-0.5">
         {links.map((l) => (
           <a

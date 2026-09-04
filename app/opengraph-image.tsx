@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-export const alt = "Aarnawa Koirala — systems software in Rust and C";
+export const alt = "Aarnawa Koirala: systems software in Rust and C";
 
 export default function OpengraphImage() {
   return new ImageResponse(
@@ -25,7 +25,7 @@ export default function OpengraphImage() {
           Aarnawa Koirala<span style={{ color: "#d92d20" }}>.</span>
         </div>
         <div style={{ display: "flex", fontSize: 36, color: "#4e5054", maxWidth: 900, lineHeight: 1.4 }}>
-          I build systems software in Rust and C — kernels, allocators, and
+          I build systems software in Rust and C: kernels, allocators, and
           simulation engines where the numbers have to hold up.
         </div>
       </div>
